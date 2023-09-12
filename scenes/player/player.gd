@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal primary(pos)
-signal secondary
+signal secondary(pos)
 
 var can_primary: bool = true
 var can_secondary: bool = true
@@ -17,14 +17,13 @@ func _process(_delta):
 	if Input.is_action_pressed("primary action") and can_primary:
 		can_primary = false
 		$PrimaryTimer.start()
-		var projectile = $LaserStartPositions.get_children().pick_random()
-		primary.emit(projectile.global_position)
+		primary.emit($LaserStartPositions.get_children().pick_random().global_position)
 	
 	# grenade input
 	if Input.is_action_just_pressed("secondary action") and can_secondary:
-		secondary.emit()
-		$SecondaryTimer.start()
 		can_secondary = false
+		$SecondaryTimer.start()
+		secondary.emit($LaserStartPositions.get_children()[0].global_position)
 
 func _on_primary_timer_timeout():
 	can_primary = true
