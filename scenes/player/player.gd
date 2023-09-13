@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
-signal primary(pos)
-signal secondary(pos)
+signal primary(pos: Vector2, dir: Vector2)
+signal secondary(pos: Vector2, dir: Vector2)
 
 var can_primary: bool = true
 var can_secondary: bool = true
+
+func _ready():
+	rotation += PI/2
 
 func _process(_delta):
 	
@@ -13,17 +16,27 @@ func _process(_delta):
 	velocity = direction * 500
 	move_and_slide()
 	
+	var player_facing = (get_global_mouse_position() - position).normalized()
+	
+	# rotate - look at mouse
+	look_at(get_global_mouse_position())
+	rotate(PI/2)
+	
 	# laser shooting input
 	if Input.is_action_pressed("primary action") and can_primary:
 		can_primary = false
 		$PrimaryTimer.start()
-		primary.emit($LaserStartPositions.get_children().pick_random().global_position)
+		var pos = $LaserStartPositions.get_children().pick_random().global_position
+		var dir = player_facing
+		primary.emit(pos, dir)
 	
 	# grenade input
 	if Input.is_action_just_pressed("secondary action") and can_secondary:
 		can_secondary = false
 		$SecondaryTimer.start()
-		secondary.emit($LaserStartPositions.get_children()[0].global_position)
+		var pos = $LaserStartPositions.get_children()[0].global_position
+		var dir = player_facing
+		secondary.emit(pos, dir)
 
 func _on_primary_timer_timeout():
 	can_primary = true
