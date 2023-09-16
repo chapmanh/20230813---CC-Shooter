@@ -1,10 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnakvo04hvkgg"]
+[gd_scene load_steps=6 format=3 uid="uid://cnakvo04hvkgg"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_0n52c"]
 [ext_resource type="Texture2D" uid="uid://dfwjsphgni7vl" path="res://graphics/player/player.png" id="1_61y5v"]
+[ext_resource type="Texture2D" uid="uid://b317icmgjqbtg" path="res://graphics/decals/white.png" id="3_fbeq2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvt25"]
 radius = 57.0088
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r6jce"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 50.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 1000.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
@@ -29,6 +40,15 @@ one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(20, -139)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="LaserStartPositions/Marker2D"]
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_r6jce")
+texture = ExtResource("3_fbeq2")
+lifetime = 0.5
+explosiveness = 0.95
+trail_enabled = true
+trail_lifetime = 0.5
 
 [node name="Marker2D2" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(12, -135)

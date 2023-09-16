@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://sbqhkqvnc37r"]
+[gd_scene load_steps=18 format=3 uid="uid://sbqhkqvnc37r"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_1vsw7"]
 [ext_resource type="Texture2D" uid="uid://dld3qok7vc75t" path="res://graphics/ground/stones.png" id="2_01mk6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bixjlbtbua2m2" path="res://graphics/decals/moss/moss_5.png" id="7_amtkx"]
 [ext_resource type="Texture2D" uid="uid://dr84blpjxmqa6" path="res://graphics/tilesets/outside_walls.png" id="9_3yrgn"]
 [ext_resource type="PackedScene" uid="uid://df0m225f5pujv" path="res://scenes/houses/house.tscn" id="11_djsth"]
+[ext_resource type="PackedScene" uid="uid://d1irnxeaw6ro3" path="res://scenes/objects/steam_vent.tscn" id="12_el7x8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8t2um"]
 resource_name = "walls"
@@ -88,7 +89,7 @@ position = Vector2(2347, 95)
 texture = ExtResource("4_5gegc")
 
 [node name="Moss3" type="Sprite2D" parent="Ground"]
-position = Vector2(1377, 1543)
+position = Vector2(1422, 1534)
 texture = ExtResource("5_3ma37")
 
 [node name="Moss4" type="Sprite2D" parent="Ground"]
@@ -103,7 +104,18 @@ texture = ExtResource("7_amtkx")
 [node name="House" parent="Ground" instance=ExtResource("11_djsth")]
 position = Vector2(4925, 15)
 
+[node name="SteamVent" parent="Ground" instance=ExtResource("12_el7x8")]
+position = Vector2(1434, 1286)
+
+[node name="SteamVent2" parent="Ground" instance=ExtResource("12_el7x8")]
+position = Vector2(1787, 1286)
+
+[node name="SteamVent3" parent="Ground" instance=ExtResource("12_el7x8")]
+position = Vector2(2105, 1286)
+
 [node name="Gate" parent="." instance=ExtResource("2_x2siw")]
+
+[node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_0cll6")]
 position = Vector2(599, 429)
@@ -111,8 +123,6 @@ position = Vector2(599, 429)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
-
-[node name="Projectiles" type="Node2D" parent="."]
 
 [connection signal="entered" from="Gate" to="." method="_on_gate_entered"]
 [connection signal="primary" from="Player" to="." method="_on_player_primary"]
