@@ -29,6 +29,7 @@ func _process(_delta):
 		var pos = $LaserStartPositions.get_children().pick_random().global_position
 		var dir = player_facing
 		primary.emit(pos, dir)
+		$LaserStartPositions/Marker2D/GPUParticles2D.emitting = true
 	
 	# grenade input
 	if Input.is_action_just_pressed("secondary action") and can_secondary:
