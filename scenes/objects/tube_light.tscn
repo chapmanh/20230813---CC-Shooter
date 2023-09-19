@@ -16,6 +16,7 @@ polygon = PackedVector2Array(-75, 15, -80, 15, -84, 14, -89, 13, -94, 10, -97, 7
 visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_f3oxw")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_l487p")
@@ -25,7 +26,7 @@ position = Vector2(0, 9)
 color = Color(0.905882, 0.682353, 0.866667, 1)
 energy = 2.0
 shadow_enabled = true
-shadow_color = Color(0.117647, 0.0784314, 0.0980392, 0)
+shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
 shadow_filter_smooth = 5.0
 texture = ExtResource("2_6pl43")

@@ -7,7 +7,8 @@ var can_primary: bool = true
 var can_secondary: bool = true
 
 func _ready():
-	rotation += PI/2
+	$CollisionShape2D.polygon = $LightOccluder2D.occluder.polygon
+	
 
 func _process(_delta):
 	
