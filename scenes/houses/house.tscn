@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://df0m225f5pujv"]
+[gd_scene load_steps=34 format=3 uid="uid://df0m225f5pujv"]
 
 [ext_resource type="Texture2D" uid="uid://c7f0t7sdeafgn" path="res://graphics/tilesets/interior.png" id="1_j4onm"]
 [ext_resource type="PackedScene" uid="uid://igr1jdmmj70s" path="res://scenes/objects/tube_light.tscn" id="2_76xvh"]
 [ext_resource type="PackedScene" uid="uid://dybrnwc60ludm" path="res://scenes/objects/wall_lamp.tscn" id="3_1wbrt"]
+[ext_resource type="PackedScene" uid="uid://7orlx1ilol4y" path="res://scenes/objects/ceiling_fan.tscn" id="4_igm3e"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kgnx2"]
 polygon = PackedVector2Array(-195, -15.6, -195, 15.6, 195, 15.6, 195, -15.6)
@@ -357,4 +358,12 @@ metadata/_edit_lock_ = true
 position = Vector2(3126, 1656)
 rotation = 3.14159
 scale = Vector2(1, -1)
+metadata/_edit_lock_ = true
+
+[node name="CeilingFan" parent="Lighting" instance=ExtResource("4_igm3e")]
+position = Vector2(1127, 582)
+metadata/_edit_lock_ = true
+
+[node name="CeilingFan2" parent="Lighting" instance=ExtResource("4_igm3e")]
+position = Vector2(3055, 578)
 metadata/_edit_lock_ = true
