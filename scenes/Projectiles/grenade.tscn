@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxgorjqxawtwt"]
+[gd_scene load_steps=11 format=3 uid="uid://cxgorjqxawtwt"]
 
 [ext_resource type="Texture2D" uid="uid://6k0s1xrwdv6l" path="res://graphics/projectiles/grenade.png" id="1_i6k4i"]
 [ext_resource type="Script" path="res://scenes/Projectiles/grenade.gd" id="1_q116q"]
-[ext_resource type="Texture2D" uid="uid://dkrirs50525rs" path="res://graphics/explosions/explosion_2.png" id="3_ikot0"]
+[ext_resource type="Texture2D" uid="uid://dcnegy2olr7nk" path="res://graphics/explosions/explosion_3.png" id="3_5din1"]
+[ext_resource type="Texture2D" uid="uid://dfb5nfq81sxfq" path="res://graphics/lights/textures/circle.png" id="3_weiyh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_41qj0"]
 friction = 10.0
@@ -10,6 +11,90 @@ bounce = 0.4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_naeyd"]
 radius = 20.025
+
+[sub_resource type="Animation" id="Animation_yemlv"]
+resource_name = "explosion"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node/Explosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jdryn"]
+resource_name = "countdown_timer"
+length = 3.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.1, 3.2, 3.3, 3.4, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, false, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lp5k2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_51sb5"]
+_data = {
+"RESET": SubResource("Animation_lp5k2"),
+"countdown_timer": SubResource("Animation_jdryn"),
+"explosion": SubResource("Animation_yemlv")
+}
 
 [node name="Grenade" type="RigidBody2D"]
 collision_layer = 8
@@ -19,14 +104,36 @@ gravity_scale = 0.0
 linear_damp = 1.6
 script = ExtResource("1_q116q")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_naeyd")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.263158, 0.263158)
 texture = ExtResource("1_i6k4i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_naeyd")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Node")
+update_rotation = false
+update_scale = false
 
-[node name="ExplosionAnimation" type="Sprite2D" parent="."]
-texture = ExtResource("3_ikot0")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "countdown_timer"
+libraries = {
+"": SubResource("AnimationLibrary_51sb5")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
+color = Color(0.960938, 0.136719, 0.132813, 1)
+energy = 2.0
+texture = ExtResource("3_weiyh")
+texture_scale = 0.5
+
+[node name="Node" type="Node2D" parent="."]
+top_level = true
+
+[node name="Explosion" type="Sprite2D" parent="Node"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_5din1")
 hframes = 8
 vframes = 8
