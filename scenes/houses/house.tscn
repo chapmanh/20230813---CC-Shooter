@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://df0m225f5pujv"]
+[gd_scene load_steps=35 format=3 uid="uid://df0m225f5pujv"]
 
 [ext_resource type="Texture2D" uid="uid://c7f0t7sdeafgn" path="res://graphics/tilesets/interior.png" id="1_j4onm"]
+[ext_resource type="Script" path="res://scenes/houses/house.gd" id="1_nmsa5"]
 [ext_resource type="PackedScene" uid="uid://igr1jdmmj70s" path="res://scenes/objects/tube_light.tscn" id="2_76xvh"]
 [ext_resource type="PackedScene" uid="uid://dybrnwc60ludm" path="res://scenes/objects/wall_lamp.tscn" id="3_1wbrt"]
 [ext_resource type="PackedScene" uid="uid://7orlx1ilol4y" path="res://scenes/objects/ceiling_fan.tscn" id="4_igm3e"]
@@ -294,6 +295,8 @@ sources/1 = SubResource("TileSetAtlasSource_bjv53")
 
 [node name="House" type="Area2D"]
 collision_layer = 16
+collision_mask = 33
+script = ExtResource("1_nmsa5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-9, 118, -120, -1, -3, -118, 2337, -125, 2612, -387, 2729, -503, 4693, -505, 4793, -393, 4800, 1564, 4674, 1681, 2733, 1681, 2613, 1557, 2351, 1292, 10, 1286, -121, 1176, 1, 1053, 269, 762, 184, 760, 184, 413, 263, 413)
@@ -367,3 +370,6 @@ metadata/_edit_lock_ = true
 [node name="CeilingFan2" parent="Lighting" instance=ExtResource("4_igm3e")]
 position = Vector2(3055, 578)
 metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

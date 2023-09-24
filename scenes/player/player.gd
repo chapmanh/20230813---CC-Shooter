@@ -6,15 +6,17 @@ signal secondary(pos: Vector2, dir: Vector2)
 var can_primary: bool = true
 var can_secondary: bool = true
 
+@export var max_speed: int = 500
+var speed: int = max_speed
+
 func _ready():
 	$CollisionShape2D.polygon = $LightOccluder2D.occluder.polygon
 	
-
 func _process(_delta):
 	
 	# input
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * 500
+	velocity = direction * speed
 	move_and_slide()
 	
 	var player_facing = (get_global_mouse_position() - position).normalized()
