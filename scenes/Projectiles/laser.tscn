@@ -8,7 +8,7 @@ height = 138.0
 
 [node name="Laser" type="Area2D"]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 38
 script = ExtResource("1_p258m")
 speed = 2000
 
@@ -19,3 +19,11 @@ texture = ExtResource("1_811oh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_55bh7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

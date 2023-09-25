@@ -5,6 +5,7 @@ signal player_exited
 
 func _on_body_entered(body):
 	player_entered.emit(body)
+	print("entered!")
 
 func _on_body_exited(body):
 	player_exited.emit(body)
