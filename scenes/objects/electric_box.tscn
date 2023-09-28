@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://hpwalwlq4yka"]
+
+[ext_resource type="PackedScene" uid="uid://bqraj6tyggawb" path="res://scenes/objects/item_container.tscn" id="1_osngy"]
+[ext_resource type="Texture2D" uid="uid://cel7d2pk8llv7" path="res://graphics/objects/electric_box.png" id="2_pwgk4"]
+[ext_resource type="Texture2D" uid="uid://111glqpw6yg7" path="res://graphics/objects/Box.png" id="3_miohf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nslx"]
+size = Vector2(356, 256)
+
+[node name="ElectricBox" instance=ExtResource("1_osngy")]
+item_name = "Electric Box"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_8nslx")
+
+[node name="ContainerSprite" parent="." index="2"]
+texture = ExtResource("2_pwgk4")
+
+[node name="ContainerLid" parent="." index="3"]
+position = Vector2(0, -1)
+texture = ExtResource("3_miohf")

@@ -1,26 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://ype7mfjjvslt"]
+[gd_scene load_steps=5 format=3 uid="uid://ype7mfjjvslt"]
 
 [ext_resource type="PackedScene" uid="uid://bqraj6tyggawb" path="res://scenes/objects/item_container.tscn" id="1_2s0n7"]
-[ext_resource type="Script" path="res://scenes/objects/box.gd" id="2_5ct7l"]
 [ext_resource type="Texture2D" uid="uid://cuwxn0vf24ga7" path="res://graphics/objects/box/base.png" id="2_aiu4c"]
 [ext_resource type="Texture2D" uid="uid://pao0mcg4aemo" path="res://graphics/objects/box/lid.png" id="4_t4lp7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nslx"]
-size = Vector2(406, 184)
+size = Vector2(406, 178)
 
 [node name="Box" instance=ExtResource("1_2s0n7")]
-script = ExtResource("2_5ct7l")
+item_name = "Box"
 
-[node name="ItemSprite" parent="." index="0"]
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_8nslx")
+
+[node name="ContainerSprite" parent="." index="2"]
 texture = ExtResource("2_aiu4c")
 
-[node name="BoxLid" type="Sprite2D" parent="." index="1"]
-position = Vector2(0, 9)
+[node name="ContainerLid" parent="." index="3"]
+position = Vector2(0, 11)
 texture = ExtResource("4_t4lp7")
-
-[node name="CollisionPolygon2D" parent="." index="2"]
-visible = false
-
-[node name="CollisionShape2D" parent="." index="3"]
-visible = false
-shape = SubResource("RectangleShape2D_8nslx")

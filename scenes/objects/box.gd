@@ -4,5 +4,5 @@ func _ready():
 	item_name = "Box"
 	
 func hit():
-	#$BoxLid.visible = false
+	$BoxLid.visible = false
 	
