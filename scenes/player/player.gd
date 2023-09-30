@@ -10,6 +10,7 @@ var can_secondary: bool = true
 var speed: int = max_speed
 
 func _ready():
+	print("player ready!")
 	$CollisionShape2D.polygon = $LightOccluder2D.occluder.polygon
 	
 func _process(_delta):
@@ -47,3 +48,7 @@ func _on_primary_timer_timeout():
 	
 func _on_secondary_timer_timeout():
 	can_secondary = true
+
+#func enable_lighting(b :bool):
+#	print("Player lighting check!")
+#	$PointLight2D.enabled = b

@@ -103,6 +103,7 @@ sources/1 = SubResource("TileSetAtlasSource_fg0uk")
 
 [node name="Outside" instance=ExtResource("1_yp552")]
 script = ExtResource("2_431sx")
+level_lighting = null
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2

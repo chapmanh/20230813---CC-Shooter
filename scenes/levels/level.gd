@@ -4,8 +4,18 @@ class_name BaseLevel
 var laser_scene: PackedScene = preload("res://scenes/Projectiles/laser.tscn")
 var grenade_scene: PackedScene = preload("res://scenes/Projectiles/grenade.tscn")
 
-const indoor_zoom: float = 0.6
-const outdoor_zoom: float = 0.4 
+const ZOOM_INDOORS: float = 0.6
+const ZOOM_OUTDOORS: float = 0.4
+
+#var lighting_color: Color = Color(0.9, 1, 0.6, 0.9)
+const LIGHTING_OFF: Color = Color(238/255.0, 247/255.0, 220/255.0, 222/255.0)
+const LIGHTING_ON: Color = Color (0, 0, 0, 0)
+
+#@export var level_lighting: bool = false
+#signal set_level_lighting(v: bool)
+
+func _ready():
+	pass
 
 func _on_player_primary(pos, dir):
 	var laser = laser_scene.instantiate() as Area2D

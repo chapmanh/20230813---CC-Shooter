@@ -5,7 +5,7 @@ func _on_gate_entered(_body):
 	tween.tween_property(%Player, "speed", 0, 0.5)
 
 func _on_house_player_entered(_body):
-	adjust_zoom(indoor_zoom)
+	adjust_zoom(ZOOM_INDOORS)
 	
 func _on_house_player_exited(_body):
-	adjust_zoom(outdoor_zoom)
+	adjust_zoom(ZOOM_OUTDOORS)
