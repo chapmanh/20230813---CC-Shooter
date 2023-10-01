@@ -1,9 +1,8 @@
 extends BaseLevel
 
-var base_level = BaseLevel.new()
+@export var outside_level_scene: PackedScene
 
-func _ready():
-	base_level._ready()
-	$DirectionalLight2D.color = LIGHTING_OFF
-	$DirectionalLight2D.enabled = true
-	print($DirectionalLight2D.color)
+func _on_entrance_body_entered(_body):
+	var tween = create_tween()
+	tween.tween_property(%Player, "speed", 0, 0.5)
+	get_tree().change_scene_to_packed(outside_level_scene)

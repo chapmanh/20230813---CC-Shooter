@@ -76,6 +76,7 @@ position = Vector2(28, -135)
 occluder = SubResource("OccluderPolygon2D_cgfrt")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
 texture = ExtResource("4_c8csu")
 
 [connection signal="timeout" from="PrimaryTimer" to="." method="_on_primary_timer_timeout"]

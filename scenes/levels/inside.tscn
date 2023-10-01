@@ -16,6 +16,7 @@
 
 [node name="Inside" instance=ExtResource("1_vbh7a")]
 script = ExtResource("2_j6hja")
+outside_level_scene = null
 
 [node name="DirectionalLight2D" parent="." index="0"]
 enabled = false
@@ -382,3 +383,14 @@ rotation = -4.71239
 [node name="TubeLight14" parent="Lights" index="40" instance=ExtResource("10_k4tgr")]
 position = Vector2(530, -8968)
 rotation = -4.71239
+
+[node name="TubeLight15" parent="Lights" index="41" instance=ExtResource("10_k4tgr")]
+position = Vector2(-910, 186)
+rotation = -1.57079
+
+[node name="TubeLight16" parent="Lights" index="42" instance=ExtResource("10_k4tgr")]
+position = Vector2(911, 186)
+rotation = -4.71238
+
+[node name="Player" parent="Characters" index="0"]
+position = Vector2(-16, 270)

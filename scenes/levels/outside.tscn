@@ -103,7 +103,7 @@ sources/1 = SubResource("TileSetAtlasSource_fg0uk")
 
 [node name="Outside" instance=ExtResource("1_yp552")]
 script = ExtResource("2_431sx")
-level_lighting = null
+inside_level_scene = null
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -186,7 +186,7 @@ rotation = 3.14159
 collision_mask = 11
 
 [node name="Player" parent="Characters" index="0"]
-position = Vector2(3830, 605)
+position = Vector2(584, 605)
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
