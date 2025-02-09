@@ -130,7 +130,7 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Node/Explosion:modulate")
 tracks/3/interp = 1
-tracks/3/loop_wrap = true
+tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0.55, 2),
 "transitions": PackedFloat32Array(1, 1),
@@ -171,7 +171,7 @@ _data = {
 
 [node name="Grenade" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 47
+collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_41qj0")
 gravity_scale = 0.0
 linear_damp = 1.6
@@ -206,14 +206,12 @@ texture_scale = 0.5
 top_level = true
 
 [node name="Explosion" type="Sprite2D" parent="Node"]
-modulate = Color(1, 1, 1, 0.476191)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_5din1")
 hframes = 8
 vframes = 8
 
 [node name="PointLight2D" type="PointLight2D" parent="Node"]
-scale = Vector2(1, 1)
 enabled = false
 color = Color(1, 0.623529, 0.545098, 1)
 texture = ExtResource("3_weiyh")

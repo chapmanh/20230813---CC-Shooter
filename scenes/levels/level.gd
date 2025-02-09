@@ -34,4 +34,11 @@ func _on_player_secondary(pos, dir):
 
 func adjust_zoom(zoom_value):
 	var tween = create_tween()
-	tween.tween_property(%Player/Camera2D, "zoom", Vector2(zoom_value, zoom_value), 1).set_trans(Tween.TRANS_SINE)
+#	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.tween_property(
+		%Player/Camera2D, 
+		"zoom",
+		Vector2(zoom_value, zoom_value),
+		1
+	)

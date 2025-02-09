@@ -4,9 +4,9 @@ extends Area2D
 var direction: Vector2 = Vector2.UP
 
 func _ready():
-	pass
+	$SelfDestructTimer.start()
 
-func _process(delta):
+func _process(delta): 
 	position += direction * speed * delta
 
 func _on_body_entered(body):
@@ -14,6 +14,6 @@ func _on_body_entered(body):
 		#if "hit" in body:
 		body.hit()
 	queue_free()
-
-func _on_timer_timeout():
+ 
+func _on_self_destruct_timer_timeout():
 	queue_free()

@@ -21,11 +21,7 @@ size = Vector2(782, 126)
 [node name="Inside" instance=ExtResource("1_vbh7a")]
 script = ExtResource("2_j6hja")
 
-[node name="DirectionalLight2D" parent="." index="0"]
-enabled = false
-color = Color(1, 1, 1, 0.921569)
-
-[node name="Ground" parent="." index="1"]
+[node name="Ground" parent="." index="0"]
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
@@ -140,7 +136,7 @@ position = Vector2(-379, 583)
 position = Vector2(376, 583)
 rotation = 3.14159
 
-[node name="Lights" parent="." index="3"]
+[node name="Lights" parent="." index="2"]
 metadata/_edit_lock_ = true
 
 [node name="CeilingFan" parent="Lights" index="0" instance=ExtResource("8_pyw7p")]
@@ -240,35 +236,35 @@ position = Vector2(-3512, -2600)
 rotation = -3.14159
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights" index="20"]
+[node name="CeilingGrid" type="Sprite2D" parent="Lights" index="20"]
 modulate = Color(1, 1, 1, 0.0352941)
 position = Vector2(-780, -12090)
 scale = Vector2(4, 4)
 texture = ExtResource("11_h8mnq")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="Lights" index="21"]
+[node name="CeilingGrid2" type="Sprite2D" parent="Lights" index="21"]
 modulate = Color(1, 1, 1, 0.0352941)
 position = Vector2(780, -12090)
 scale = Vector2(4, 4)
 texture = ExtResource("11_h8mnq")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="Lights" index="22"]
+[node name="CeilingGrid3" type="Sprite2D" parent="Lights" index="22"]
 modulate = Color(1, 1, 1, 0.0352941)
 position = Vector2(-780, -10530)
 scale = Vector2(4, 4)
 texture = ExtResource("11_h8mnq")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D4" type="Sprite2D" parent="Lights" index="23"]
+[node name="CeilingGrid4" type="Sprite2D" parent="Lights" index="23"]
 modulate = Color(1, 1, 1, 0.0352941)
 position = Vector2(780, -10530)
 scale = Vector2(4, 4)
 texture = ExtResource("11_h8mnq")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="Lights" index="24"]
+[node name="CeilingLattice" type="Sprite2D" parent="Lights" index="24"]
 modulate = Color(1, 1, 1, 0.0352941)
 texture_repeat = 2
 position = Vector2(-4290, -2925)
@@ -278,7 +274,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 602, 163)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D9" type="Sprite2D" parent="Lights" index="25"]
+[node name="CeilingInfrastructure" type="Sprite2D" parent="Lights" index="25"]
 modulate = Color(1, 1, 1, 0.0352941)
 texture_repeat = 2
 position = Vector2(-5265, -1365)
@@ -288,7 +284,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D11" type="Sprite2D" parent="Lights" index="26"]
+[node name="CeilingInfrastructure2" type="Sprite2D" parent="Lights" index="26"]
 modulate = Color(1, 1, 1, 0.0352941)
 texture_repeat = 2
 position = Vector2(-5265, -975)
@@ -298,7 +294,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D12" type="Sprite2D" parent="Lights" index="27"]
+[node name="CeilingInfrastructure3" type="Sprite2D" parent="Lights" index="27"]
 modulate = Color(1, 1, 1, 0.0352941)
 texture_repeat = 2
 position = Vector2(-4875, -975)
@@ -308,7 +304,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D13" type="Sprite2D" parent="Lights" index="28"]
+[node name="CeilingInfrastructure4" type="Sprite2D" parent="Lights" index="28"]
 modulate = Color(1, 1, 1, 0.0352941)
 texture_repeat = 2
 position = Vector2(-4485, -975)
@@ -318,7 +314,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D10" type="Sprite2D" parent="Lights" index="29"]
+[node name="CeilingInfrastructure5" type="Sprite2D" parent="Lights" index="29"]
 modulate = Color(1, 1, 1, 0.0352941)
 texture_repeat = 2
 position = Vector2(-5265, -585)
@@ -328,7 +324,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D6" type="Sprite2D" parent="Lights" index="30"]
+[node name="CeilingLattice2" type="Sprite2D" parent="Lights" index="30"]
 modulate = Color(1, 1, 1, 0.0352941)
 texture_repeat = 2
 position = Vector2(-5265, -4875)
@@ -339,7 +335,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 513, 163)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D7" type="Sprite2D" parent="Lights" index="31"]
+[node name="CeilingLattice3" type="Sprite2D" parent="Lights" index="31"]
 modulate = Color(1, 1, 1, 0.0352941)
 texture_repeat = 2
 position = Vector2(-6045, -4875)
@@ -350,7 +346,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 513, 163)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D8" type="Sprite2D" parent="Lights" index="32"]
+[node name="CeilingLattice4" type="Sprite2D" parent="Lights" index="32"]
 modulate = Color(1, 1, 1, 0.0352941)
 texture_repeat = 2
 position = Vector2(-4485, -4875)
@@ -403,6 +399,9 @@ rotation = -4.71238
 
 [node name="Player" parent="Characters" index="0"]
 position = Vector2(-16, 270)
+
+[node name="DirectionalLight2D" parent="." index="5"]
+color = Color(0.419608, 0.639216, 0.678431, 0.482353)
 
 [node name="Entrance" type="Area2D" parent="." index="6"]
 position = Vector2(0, 582)
