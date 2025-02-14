@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0umexyrvmbim"]
+[gd_scene load_steps=21 format=3 uid="uid://b0umexyrvmbim"]
 
 [ext_resource type="PackedScene" uid="uid://sbqhkqvnc37r" path="res://scenes/levels/level_template.tscn" id="1_yp552"]
 [ext_resource type="PackedScene" uid="uid://32416h8esj0x" path="res://scenes/objects/gate.tscn" id="2_7falm"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d1irnxeaw6ro3" path="res://scenes/objects/steam_vent.tscn" id="12_bshe7"]
 [ext_resource type="PackedScene" uid="uid://ype7mfjjvslt" path="res://scenes/objects/box.tscn" id="15_yvj4c"]
 [ext_resource type="PackedScene" uid="uid://w4w2yd8qbnyf" path="res://scenes/objects/toilet.tscn" id="16_a8xji"]
+[ext_resource type="PackedScene" uid="uid://bav0mvtechumq" path="res://scenes/User Interface/ui.tscn" id="17_l77dt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8t2um"]
 resource_name = "walls"
@@ -110,6 +111,7 @@ position = Vector2(640, 462)
 texture = ExtResource("2_xrllp")
 region_enabled = true
 region_rect = Rect2(-2972.16, -1641.69, 20000, 4262.68)
+metadata/_edit_lock_ = true
 
 [node name="Dirt" type="Sprite2D" parent="Ground" index="1"]
 modulate = Color(0.607843, 0.443137, 0.278431, 1)
@@ -186,6 +188,8 @@ collision_mask = 11
 
 [node name="Player" parent="Characters" index="0"]
 position = Vector2(584, 605)
+
+[node name="CanvasLayer" parent="." index="5" instance=ExtResource("17_l77dt")]
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]

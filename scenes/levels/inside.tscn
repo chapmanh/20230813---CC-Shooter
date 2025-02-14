@@ -400,10 +400,7 @@ rotation = -4.71238
 [node name="Player" parent="Characters" index="0"]
 position = Vector2(-16, 270)
 
-[node name="DirectionalLight2D" parent="." index="5"]
-color = Color(0.419608, 0.639216, 0.678431, 0.482353)
-
-[node name="Entrance" type="Area2D" parent="." index="6"]
+[node name="Entrance" type="Area2D" parent="." index="5"]
 position = Vector2(0, 582)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance" index="0"]
