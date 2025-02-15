@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bav0mvtechumq"]
+[gd_scene load_steps=8 format=3 uid="uid://bav0mvtechumq"]
 
+[ext_resource type="Script" path="res://scenes/User Interface/ui.gd" id="1_1lplv"]
 [ext_resource type="Theme" uid="uid://dyj4x3wnpjlkt" path="res://scenes/User Interface/main_theme.tres" id="1_5js54"]
 [ext_resource type="Texture2D" uid="uid://dysktn43newet" path="res://graphics/ui/bullet.png" id="1_kw56f"]
 [ext_resource type="Texture2D" uid="uid://crosddvny3a3h" path="res://graphics/ui/grenade.png" id="2_kyyle"]
+[ext_resource type="Texture2D" uid="uid://bedh8va04ccab" path="res://graphics/ui/progress_bar/bg.png" id="4_b2kcw"]
+[ext_resource type="Texture2D" uid="uid://d4e5fd3o7dpma" path="res://graphics/ui/progress_bar/over.png" id="5_uur3l"]
+[ext_resource type="Texture2D" uid="uid://t3t55q1ul5ix" path="res://graphics/ui/progress_bar/progress.png" id="6_0yawu"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_1lplv")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="AmmoMarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -16,40 +21,60 @@ grow_vertical = 0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="AmmoHBoxContainer" type="HBoxContainer" parent="AmmoMarginContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="PrimaryCounter" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="PrimaryVBoxContainer" type="VBoxContainer" parent="AmmoMarginContainer/AmmoHBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="PrimaryAmmoLabel" type="Label" parent="MarginContainer/HBoxContainer/PrimaryCounter"]
+[node name="PrimaryLabel" type="Label" parent="AmmoMarginContainer/AmmoHBoxContainer/PrimaryVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_5js54")
 text = "999"
 horizontal_alignment = 1
 
-[node name="PrimaryTextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PrimaryCounter"]
+[node name="PrimaryTextureRect" type="TextureRect" parent="AmmoMarginContainer/AmmoHBoxContainer/PrimaryVBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_kw56f")
 expand_mode = 5
 
-[node name="SecondaryCounter" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="SecondaryVBoxContainer" type="VBoxContainer" parent="AmmoMarginContainer/AmmoHBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="SecondaryAmmoLabel" type="Label" parent="MarginContainer/HBoxContainer/SecondaryCounter"]
+[node name="SecondaryLabel" type="Label" parent="AmmoMarginContainer/AmmoHBoxContainer/SecondaryVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_5js54")
 text = "99"
 horizontal_alignment = 1
 
-[node name="SecondaryTextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/SecondaryCounter"]
+[node name="SecondaryTextureRect" type="TextureRect" parent="AmmoMarginContainer/AmmoHBoxContainer/SecondaryVBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_kyyle")
 expand_mode = 4
+
+[node name="HealthMarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -30.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="HealthTextureProgressBar" type="TextureProgressBar" parent="HealthMarginContainer"]
+layout_mode = 2
+value = 10.0
+texture_under = ExtResource("4_b2kcw")
+texture_over = ExtResource("5_uur3l")
+texture_progress = ExtResource("6_0yawu")

@@ -14,15 +14,13 @@ const LIGHTING_ON: Color = Color (0, 0, 0, 0)
 #@export var level_lighting: bool = false
 #signal set_level_lighting(v: bool)
 
-func _ready():
-	pass
-
 func _on_player_primary(pos, dir):
 	var laser = laser_scene.instantiate() as Area2D
 	laser.position = pos
 	laser.rotation = dir.angle() + PI/2
 	laser.direction = dir
 	$Projectiles.add_child(laser)
+	$UI.update_primary_label_text()
 
 func _on_player_secondary(pos, dir):
 	var grenade = grenade_scene.instantiate() as RigidBody2D
@@ -31,6 +29,7 @@ func _on_player_secondary(pos, dir):
 	grenade.rotation = randf()*2*PI
 	grenade.angular_velocity = randf_range(-1, 1) * 2 * PI
 	$Projectiles.add_child(grenade)
+	$UI.update_secondary_label_text()
 
 func adjust_zoom(zoom_value):
 	var tween = create_tween()

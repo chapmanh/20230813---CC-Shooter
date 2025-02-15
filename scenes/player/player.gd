@@ -10,7 +10,6 @@ var can_secondary: bool = true
 var speed: int = max_speed
 
 func _ready():
-	print("player ready!")
 	$CollisionShape2D.polygon = $LightOccluder2D.occluder.polygon
 	
 func _process(_delta):
@@ -27,7 +26,12 @@ func _process(_delta):
 	rotate(PI/2)
 	
 	# laser shooting input
-	if Input.is_action_pressed("primary action") and can_primary:
+	if (Input.is_action_pressed("primary action") 
+			and can_primary 
+			and Globals.primary_amount > 0
+		):
+		Globals.primary_amount -= 1 #Update primary
+		Globals.laser_amount = Globals.primary_amount #Backup value to specific weapon
 		can_primary = false
 		$PrimaryTimer.start()
 		var pos = $LaserStartPositions.get_children().pick_random().global_position
@@ -37,7 +41,12 @@ func _process(_delta):
 		$LaserStartPositions/Marker2D/GPUParticles2D.emitting = true
 	
 	# grenade input
-	if Input.is_action_just_pressed("secondary action") and can_secondary:
+	if (Input.is_action_just_pressed("secondary action")
+			and can_secondary
+			and Globals.secondary_amount > 0
+		):
+		Globals.secondary_amount -= 1
+		Globals.grenade_amount = Globals.secondary_amount
 		can_secondary = false
 		$SecondaryTimer.start()
 		var pos = $LaserStartPositions.get_children()[0].global_position
