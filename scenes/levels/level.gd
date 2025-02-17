@@ -20,16 +20,20 @@ func _on_player_primary(pos, dir):
 	laser.rotation = dir.angle() + PI/2
 	laser.direction = dir
 	$Projectiles.add_child(laser)
-	$UI.update_primary_label_text()
+	$UI.update_ammo_label_text(1)
+
 
 func _on_player_secondary(pos, dir):
-	var grenade = grenade_scene.instantiate() as RigidBody2D
-	grenade.position = pos
-	grenade.linear_velocity = dir * grenade.speed
-	grenade.rotation = randf()*2*PI
-	grenade.angular_velocity = randf_range(-1, 1) * 2 * PI
-	$Projectiles.add_child(grenade)
-	$UI.update_secondary_label_text()
+	if Globals.secondary_amount > 0:
+		Globals.secondary_amount -= 1
+		Globals.grenade_amount = Globals.secondary_amount
+		var grenade = grenade_scene.instantiate() as RigidBody2D
+		grenade.position = pos
+		grenade.linear_velocity = dir * grenade.speed
+		grenade.rotation = randf()*2*PI
+		grenade.angular_velocity = randf_range(-1, 1) * 2 * PI
+		$Projectiles.add_child(grenade)
+		$UI.update_ammo_label_text(2)
 
 func adjust_zoom(zoom_value):
 	var tween = create_tween()

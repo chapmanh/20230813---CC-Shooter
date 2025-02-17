@@ -3,7 +3,7 @@ extends Node
 var primary_amount: int = -1
 var secondary_amount: int = -1
 
-var laser_amount: int = 20
+var laser_amount: int = 3
 var grenade_amount: int = 4
 
 func _ready():
