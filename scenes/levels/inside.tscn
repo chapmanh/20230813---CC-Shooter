@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://3bfhyh6rxu3y" path="res://scenes/objects/door.tscn" id="14_ybqg3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1macu"]
-size = Vector2(782, 126)
+size = Vector2(782, 251)
 
 [node name="Inside" instance=ExtResource("1_vbh7a")]
 script = ExtResource("2_j6hja")
@@ -404,6 +404,7 @@ position = Vector2(-16, 270)
 position = Vector2(0, 582)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance" index="0"]
+position = Vector2(0, -62.5)
 shape = SubResource("RectangleShape2D_1macu")
 
 [connection signal="body_entered" from="Entrance" to="." method="_on_entrance_body_entered"]
