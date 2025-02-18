@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnakvo04hvkgg"]
+[gd_scene load_steps=9 format=3 uid="uid://cnakvo04hvkgg"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_0n52c"]
 [ext_resource type="Texture2D" uid="uid://dfwjsphgni7vl" path="res://graphics/player/player.png" id="1_61y5v"]
 [ext_resource type="Texture2D" uid="uid://b317icmgjqbtg" path="res://graphics/decals/white.png" id="3_fbeq2"]
+[ext_resource type="Texture2D" uid="uid://bh0lgfwy2phvx" path="res://graphics/lights/textures/Torch.png" id="4_5vx6d"]
 
 [sub_resource type="Gradient" id="Gradient_mmmpy"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -47,10 +48,19 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="Flashlight" type="PointLight2D" parent="."]
+position = Vector2(20, -142.472)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shadow_enabled = true
+texture = ExtResource("4_5vx6d")
+offset = Vector2(-200, -200)
+
 [node name="LaserStartPositions" type="Node2D" parent="."]
+position = Vector2(20, -142.472)
 
 [node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(20, -139)
+position = Vector2(0, 3.47189)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="LaserStartPositions/Marker2D"]
 emitting = false
@@ -67,10 +77,10 @@ trail_sections = 100
 trail_section_subdivisions = 50
 
 [node name="Marker2D2" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(12, -135)
+position = Vector2(-8, 7.47189)
 
 [node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(28, -135)
+position = Vector2(8, 7.47189)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_cgfrt")

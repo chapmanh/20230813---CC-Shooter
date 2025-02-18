@@ -54,3 +54,8 @@ func _on_player_out_of_ammo(ammo_type):
 	if ammo_type == 2:
 		flash(secondary_icon)
 		flash(secondary_label)
+
+
+func _on_player_update_stats():
+	update_ammo_label_text(1)
+	update_ammo_label_text(2)

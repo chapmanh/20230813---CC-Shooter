@@ -35,3 +35,4 @@ position_smoothing_enabled = true
 [connection signal="out_of_ammo" from="Characters/Player" to="UI" method="_on_player_out_of_ammo"]
 [connection signal="primary" from="Characters/Player" to="." method="_on_player_primary"]
 [connection signal="secondary" from="Characters/Player" to="." method="_on_player_secondary"]
+[connection signal="update_stats" from="Characters/Player" to="UI" method="_on_player_update_stats"]

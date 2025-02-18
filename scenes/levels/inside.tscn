@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b42ik480jpdvc"]
+[gd_scene load_steps=17 format=3 uid="uid://b42ik480jpdvc"]
 
 [ext_resource type="PackedScene" uid="uid://sbqhkqvnc37r" path="res://scenes/levels/level_template.tscn" id="1_vbh7a"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_j6hja"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdojp8slt1svj" path="res://scenes/objects/bed.tscn" id="6_wqnff"]
 [ext_resource type="PackedScene" uid="uid://ype7mfjjvslt" path="res://scenes/objects/box.tscn" id="7_dd7wb"]
 [ext_resource type="PackedScene" uid="uid://7orlx1ilol4y" path="res://scenes/objects/ceiling_fan.tscn" id="8_pyw7p"]
+[ext_resource type="PackedScene" uid="uid://caagrkcxdik52" path="res://scenes/Items/item.tscn" id="9_25vah"]
 [ext_resource type="PackedScene" uid="uid://dybrnwc60ludm" path="res://scenes/objects/wall_lamp.tscn" id="9_nfjsq"]
 [ext_resource type="PackedScene" uid="uid://igr1jdmmj70s" path="res://scenes/objects/tube_light.tscn" id="10_k4tgr"]
 [ext_resource type="Texture2D" uid="uid://d1exloxmu0db6" path="res://graphics/lights/overlays/hole.png" id="11_h8mnq"]
@@ -51,6 +52,10 @@ layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(-327694, 327681, 6, 65522, 327681, 8, -262147, 196609, 8, -327678, 196609, 8, -589827, 196609, 7, -655358, 131073, 8, -262148, 131073, 7, -262146, 1, 6, -262145, 1, 6, -327680, 1, 6, -327679, 1, 6, -327677, 131073, 7, -262141, 65537, 6, -65533, 327681, 8, -4, 327681, 8, -393214, 65537, 6, -458750, 65537, 6, -524286, 65537, 6, -589822, 65537, 6, -524291, 65537, 6, -458755, 65537, 6, -393219, 65537, 6, -327683, 65537, 6, -589828, 1, 6, -655357, 1, 6, -655354, 1, 6, -589831, 1, 6, -655363, 1, 7, -720894, 65537, 7, -589832, 262145, 7, -655353, 393217, 7, -196612, 65537, 6, -327673, 393217, 7, -262152, 262145, 7, -262158, 65537, 6, -262156, 65537, 6, -262157, 65537, 6, -327693, 327681, 6, -327692, 327681, 6, 65524, 327681, 8, 65523, 327681, 8, -13, 65537, 6, -12, 65537, 6, -196622, 327681, 8, -196621, 327681, 8, -196620, 327681, 8, -65548, 327681, 6, -65549, 327681, 6, -65550, 327681, 6, -14, 65537, 6, -720908, 1, 6, -851981, 131073, 8, -851980, 1, 6, -851983, 196609, 7, -983053, 327681, 6, -851984, 1, 6, -851979, 393217, 7, -851985, 262145, 7, -720913, 262145, 7, -720912, 1, 6, -720911, 65537, 8, -720909, 131073, 8, -720907, 393217, 7, -589837, 327681, 8, -983055, 327681, 6)
+
+[node name="Objects" parent="." index="1"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Toilet" parent="Objects" index="0" instance=ExtResource("4_tpiek")]
 position = Vector2(-5086, -1993)
@@ -136,133 +141,125 @@ position = Vector2(-379, 583)
 position = Vector2(376, 583)
 rotation = 3.14159
 
+[node name="Item" parent="Objects" index="19" instance=ExtResource("9_25vah")]
+position = Vector2(-6124, -95)
+
+[node name="Item2" parent="Objects" index="20" instance=ExtResource("9_25vah")]
+position = Vector2(-4402, -1031)
+
+[node name="Item3" parent="Objects" index="21" instance=ExtResource("9_25vah")]
+position = Vector2(-5817, -5401)
+
+[node name="Item5" parent="Objects" index="22" instance=ExtResource("9_25vah")]
+position = Vector2(-6166, -3598)
+
+[node name="Item4" parent="Objects" index="23" instance=ExtResource("9_25vah")]
+position = Vector2(-5052, -1767)
+
 [node name="Lights" parent="." index="2"]
+metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CeilingFan" parent="Lights" index="0" instance=ExtResource("8_pyw7p")]
-position = Vector2(-2145, -975)
+position = Vector2(-2145, -968)
 scale = Vector2(1.2, 1.2)
-metadata/_edit_lock_ = true
 
 [node name="CeilingFan2" parent="Lights" index="1" instance=ExtResource("8_pyw7p")]
 position = Vector2(2145, -975)
 scale = Vector2(1.2, 1.2)
-metadata/_edit_lock_ = true
 
 [node name="CeilingFan3" parent="Lights" index="2" instance=ExtResource("8_pyw7p")]
 position = Vector2(-2145, -2925)
 scale = Vector2(1.2, 1.2)
-metadata/_edit_lock_ = true
 
 [node name="CeilingFan4" parent="Lights" index="3" instance=ExtResource("8_pyw7p")]
 position = Vector2(2145, -2925)
 scale = Vector2(1.2, 1.2)
-metadata/_edit_lock_ = true
 
 [node name="CeilingFan5" parent="Lights" index="4" instance=ExtResource("8_pyw7p")]
 position = Vector2(-2145, -4875)
 scale = Vector2(1.2, 1.2)
-metadata/_edit_lock_ = true
 
 [node name="CeilingFan6" parent="Lights" index="5" instance=ExtResource("8_pyw7p")]
 position = Vector2(2145, -4875)
 scale = Vector2(1.2, 1.2)
-metadata/_edit_lock_ = true
 
 [node name="WallLamp" parent="Lights" index="6" instance=ExtResource("9_nfjsq")]
 position = Vector2(0, -1695)
 rotation = 3.14159
-metadata/_edit_lock_ = true
 
 [node name="WallLamp3" parent="Lights" index="7" instance=ExtResource("9_nfjsq")]
 position = Vector2(2825, -974)
 rotation = 4.71238
-metadata/_edit_lock_ = true
 
 [node name="WallLamp4" parent="Lights" index="8" instance=ExtResource("9_nfjsq")]
 position = Vector2(-2829, -974)
 rotation = 1.57079
-metadata/_edit_lock_ = true
 
 [node name="WallLamp8" parent="Lights" index="9" instance=ExtResource("9_nfjsq")]
 position = Vector2(-6316, -2925)
 rotation = 1.57079
-metadata/_edit_lock_ = true
 
 [node name="WallLamp5" parent="Lights" index="10" instance=ExtResource("9_nfjsq")]
 position = Vector2(2825, -4875)
 rotation = 4.71238
-metadata/_edit_lock_ = true
 
 [node name="WallLamp7" parent="Lights" index="11" instance=ExtResource("9_nfjsq")]
 position = Vector2(2825, -2730)
 rotation = 4.71238
-metadata/_edit_lock_ = true
 
 [node name="WallLamp6" parent="Lights" index="12" instance=ExtResource("9_nfjsq")]
 position = Vector2(-2829, -4875)
 rotation = 1.57079
-metadata/_edit_lock_ = true
 
 [node name="WallLamp2" parent="Lights" index="13" instance=ExtResource("9_nfjsq")]
 position = Vector2(0, -1850)
 rotation = 6.28318
-metadata/_edit_lock_ = true
 
 [node name="TubeLight" parent="Lights" index="14" instance=ExtResource("10_k4tgr")]
 position = Vector2(-5070, -3253)
-metadata/_edit_lock_ = true
 
 [node name="TubeLight2" parent="Lights" index="15" instance=ExtResource("10_k4tgr")]
 position = Vector2(-4288, -3253)
-metadata/_edit_lock_ = true
 
 [node name="TubeLight3" parent="Lights" index="16" instance=ExtResource("10_k4tgr")]
 position = Vector2(-3512, -3253)
-metadata/_edit_lock_ = true
 
 [node name="TubeLight4" parent="Lights" index="17" instance=ExtResource("10_k4tgr")]
 position = Vector2(-5070, -2600)
 rotation = -3.14159
-metadata/_edit_lock_ = true
 
 [node name="TubeLight5" parent="Lights" index="18" instance=ExtResource("10_k4tgr")]
 position = Vector2(-4288, -2600)
 rotation = -3.14159
-metadata/_edit_lock_ = true
 
 [node name="TubeLight6" parent="Lights" index="19" instance=ExtResource("10_k4tgr")]
 position = Vector2(-3512, -2600)
 rotation = -3.14159
-metadata/_edit_lock_ = true
 
 [node name="CeilingGrid" type="Sprite2D" parent="Lights" index="20"]
 modulate = Color(1, 1, 1, 0.0352941)
 position = Vector2(-780, -12090)
 scale = Vector2(4, 4)
 texture = ExtResource("11_h8mnq")
-metadata/_edit_lock_ = true
 
 [node name="CeilingGrid2" type="Sprite2D" parent="Lights" index="21"]
 modulate = Color(1, 1, 1, 0.0352941)
 position = Vector2(780, -12090)
 scale = Vector2(4, 4)
 texture = ExtResource("11_h8mnq")
-metadata/_edit_lock_ = true
 
 [node name="CeilingGrid3" type="Sprite2D" parent="Lights" index="22"]
 modulate = Color(1, 1, 1, 0.0352941)
 position = Vector2(-780, -10530)
 scale = Vector2(4, 4)
 texture = ExtResource("11_h8mnq")
-metadata/_edit_lock_ = true
 
 [node name="CeilingGrid4" type="Sprite2D" parent="Lights" index="23"]
 modulate = Color(1, 1, 1, 0.0352941)
 position = Vector2(780, -10530)
 scale = Vector2(4, 4)
 texture = ExtResource("11_h8mnq")
-metadata/_edit_lock_ = true
 
 [node name="CeilingLattice" type="Sprite2D" parent="Lights" index="24"]
 modulate = Color(1, 1, 1, 0.0352941)
@@ -272,7 +269,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("12_3513t")
 region_enabled = true
 region_rect = Rect2(0, 0, 602, 163)
-metadata/_edit_lock_ = true
 
 [node name="CeilingInfrastructure" type="Sprite2D" parent="Lights" index="25"]
 modulate = Color(1, 1, 1, 0.0352941)
@@ -282,7 +278,6 @@ rotation = 1.5708
 texture = ExtResource("13_1ikok")
 region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
-metadata/_edit_lock_ = true
 
 [node name="CeilingInfrastructure2" type="Sprite2D" parent="Lights" index="26"]
 modulate = Color(1, 1, 1, 0.0352941)
@@ -292,7 +287,6 @@ rotation = 3.14159
 texture = ExtResource("13_1ikok")
 region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
-metadata/_edit_lock_ = true
 
 [node name="CeilingInfrastructure3" type="Sprite2D" parent="Lights" index="27"]
 modulate = Color(1, 1, 1, 0.0352941)
@@ -302,7 +296,6 @@ rotation = 3.14159
 texture = ExtResource("13_1ikok")
 region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
-metadata/_edit_lock_ = true
 
 [node name="CeilingInfrastructure4" type="Sprite2D" parent="Lights" index="28"]
 modulate = Color(1, 1, 1, 0.0352941)
@@ -312,7 +305,6 @@ rotation = 3.14159
 texture = ExtResource("13_1ikok")
 region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
-metadata/_edit_lock_ = true
 
 [node name="CeilingInfrastructure5" type="Sprite2D" parent="Lights" index="29"]
 modulate = Color(1, 1, 1, 0.0352941)
@@ -322,7 +314,6 @@ rotation = 1.5708
 texture = ExtResource("13_1ikok")
 region_enabled = true
 region_rect = Rect2(0, 0, 250, 2197)
-metadata/_edit_lock_ = true
 
 [node name="CeilingLattice2" type="Sprite2D" parent="Lights" index="30"]
 modulate = Color(1, 1, 1, 0.0352941)
@@ -333,7 +324,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("12_3513t")
 region_enabled = true
 region_rect = Rect2(0, 0, 513, 163)
-metadata/_edit_lock_ = true
 
 [node name="CeilingLattice3" type="Sprite2D" parent="Lights" index="31"]
 modulate = Color(1, 1, 1, 0.0352941)
@@ -344,7 +334,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("12_3513t")
 region_enabled = true
 region_rect = Rect2(0, 0, 513, 163)
-metadata/_edit_lock_ = true
 
 [node name="CeilingLattice4" type="Sprite2D" parent="Lights" index="32"]
 modulate = Color(1, 1, 1, 0.0352941)
@@ -355,7 +344,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("12_3513t")
 region_enabled = true
 region_rect = Rect2(0, 0, 513, 163)
-metadata/_edit_lock_ = true
 
 [node name="TubeLight7" parent="Lights" index="33" instance=ExtResource("10_k4tgr")]
 position = Vector2(-522, -6630)

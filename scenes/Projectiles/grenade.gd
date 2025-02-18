@@ -8,7 +8,6 @@ func _ready():
 func explode():
 	$CollisionShape2D.disabled = true
 	$RemoteTransform2D.update_position = false
-	print("Starting Explosion")
 	$AnimationPlayer.play("explosion")
 	
 func free():
