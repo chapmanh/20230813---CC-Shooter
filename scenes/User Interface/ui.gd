@@ -14,13 +14,19 @@ $AmmoMarginContainer/AmmoHBoxContainer/SecondaryVBoxContainer/SecondaryLabel
 @onready var secondary_icon: TextureRect = \
 $AmmoMarginContainer/AmmoHBoxContainer/SecondaryVBoxContainer/SecondaryTextureRect
 
+@onready var health_bar: TextureProgressBar = \
+$HealthMarginContainer/HealthTextureProgressBar
+
 func _ready():
-	update_ammo_label_text(1)
-	update_ammo_label_text(2)
+	update_ammo(1)
+	update_ammo(2)
 	update_color(Globals.primary_amount, primary_label, primary_icon)
 	update_color(Globals.primary_amount, secondary_label, secondary_icon)
+	Globals.connect('health_change', update_health)
+	Globals.connect('ammo_change', update_ammo)
+	update_health()
 
-func update_ammo_label_text(ammo_type: int):
+func update_ammo(ammo_type: int):
 	if ammo_type == 1: #Primary
 		primary_label.text = str(Globals.primary_amount)
 		update_color(Globals.primary_amount, primary_label, primary_icon)
@@ -35,6 +41,9 @@ func update_color(amount: int, label: Label, icon: TextureRect) -> void:
 	else:
 		label.modulate = loaded_color
 		icon.modulate = loaded_color
+
+func update_health():
+	health_bar.value = Globals.health
 
 func flash(node):
 	var tween = create_tween()
@@ -54,8 +63,3 @@ func _on_player_out_of_ammo(ammo_type):
 	if ammo_type == 2:
 		flash(secondary_icon)
 		flash(secondary_label)
-
-
-func _on_player_update_stats():
-	update_ammo_label_text(1)
-	update_ammo_label_text(2)

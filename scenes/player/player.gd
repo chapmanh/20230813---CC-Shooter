@@ -3,13 +3,12 @@ extends CharacterBody2D
 signal primary(pos: Vector2, dir: Vector2)
 signal secondary(pos: Vector2, dir: Vector2)
 signal out_of_ammo(ammo_type: int)
-signal update_stats
 
 var can_primary: bool = true
 var can_secondary: bool = true
 
-@export var max_speed: int = 500
-var speed: int = max_speed
+@export var max_speed: float = 500
+var speed: float = max_speed
 var sprint_mult: float = 1.5
 
 func _ready():
@@ -29,7 +28,7 @@ func _process(_delta):
 	rotate(PI/2)
 	
 	# primary action
-	if (Input.is_action_pressed("primary action") 
+	if (Input.is_action_just_pressed("primary action") 
 			and can_primary
 	):
 		if Globals.primary_amount > 0:
@@ -72,16 +71,6 @@ func _on_primary_timer_timeout():
 func _on_secondary_timer_timeout():
 	can_secondary = true
 
-func add_item(type: String) -> void:
-	if type == "p":
-		Globals.primary_amount += 10
-		Globals.laser_amount = Globals.primary_amount
-	if type == "s":
-		Globals.secondary_amount += 3
-		Globals.grenade_amount = Globals.secondary_amount
-	if type == "h":
-		pass
-	update_stats.emit()
 #func enable_lighting(b :bool):
 #	print("Player lighting check!")
 #	$PointLight2D.enabled = b

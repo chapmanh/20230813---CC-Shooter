@@ -28,6 +28,7 @@ func _process(delta):
 func choose_item() -> String:
 	var chance = randf()
 	var cumulative: float = 0.0
+#	return 'h'
 	for k in items:
 		cumulative += items[k][0]
 		if chance <= cumulative:
@@ -35,7 +36,14 @@ func choose_item() -> String:
 	return ""
 		
 
-func _on_body_entered(body):
-	body.add_item(item_type)
+func _on_body_entered(_body):
+	if item_type == "p":
+		Globals.primary_amount += 10
+		Globals.laser_amount = Globals.primary_amount
+	if item_type == "s":
+		Globals.secondary_amount += 3
+		Globals.grenade_amount = Globals.secondary_amount
+	if item_type == "h":
+		Globals.health += 10
 	queue_free()
 	

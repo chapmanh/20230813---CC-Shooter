@@ -51,6 +51,7 @@ one_shot = true
 [node name="Flashlight" type="PointLight2D" parent="."]
 position = Vector2(20, -137.976)
 rotation = 0.785398
+enabled = false
 shadow_enabled = true
 texture = ExtResource("4_5vx6d")
 offset = Vector2(-200, -200)
