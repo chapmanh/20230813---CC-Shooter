@@ -218,11 +218,11 @@ rotation = -1.57079
 collision_mask = 11
 
 [node name="Toilet" parent="Objects" index="3" instance=ExtResource("16_a8xji")]
-position = Vector2(9416, -393)
+position = Vector2(9416, -412)
 collision_mask = 11
 
 [node name="Toilet2" parent="Objects" index="4" instance=ExtResource("16_a8xji")]
-position = Vector2(9421, 1604)
+position = Vector2(9422, 1623)
 rotation = 3.14159
 collision_mask = 11
 
