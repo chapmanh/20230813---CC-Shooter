@@ -9,13 +9,30 @@ size = Vector2(406, 178)
 
 [node name="Box" instance=ExtResource("1_2s0n7")]
 item_name = "Box"
+item_count_min = 2
+item_count_max = 5
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = true
 shape = SubResource("RectangleShape2D_8nslx")
 
-[node name="ContainerSprite" parent="." index="2"]
+[node name="ContainerBase" parent="." index="2"]
 texture = ExtResource("2_aiu4c")
 
 [node name="ContainerLid" parent="." index="3"]
 position = Vector2(0, 11)
 texture = ExtResource("4_t4lp7")
+
+[node name="ItemSpawn1" parent="ItemSpawnPoints" index="0"]
+position = Vector2(-120, 0)
+
+[node name="ItemSpawn2" type="Node2D" parent="ItemSpawnPoints" index="1"]
+position = Vector2(-60, 0)
+
+[node name="ItemSpawn3" type="Node2D" parent="ItemSpawnPoints" index="2"]
+
+[node name="ItemSpawn4" type="Node2D" parent="ItemSpawnPoints" index="3"]
+position = Vector2(60, 0)
+
+[node name="ItemSpawn5" type="Node2D" parent="ItemSpawnPoints" index="4"]
+position = Vector2(120, 0)

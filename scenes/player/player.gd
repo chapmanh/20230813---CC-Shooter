@@ -59,7 +59,7 @@ func _process(_delta):
 
 	if Input.is_action_pressed("sprint"):
 		speed = max_speed * sprint_mult
-	else:
+	if Input.is_action_just_released("sprint"):
 		speed = max_speed
 		
 	if Input.is_action_just_pressed("utility"):

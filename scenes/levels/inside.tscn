@@ -54,33 +54,32 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(-327694, 327681, 6, 65522, 327681, 8, -262147, 196609, 8, -327678, 196609, 8, -589827, 196609, 7, -655358, 131073, 8, -262148, 131073, 7, -262146, 1, 6, -262145, 1, 6, -327680, 1, 6, -327679, 1, 6, -327677, 131073, 7, -262141, 65537, 6, -65533, 327681, 8, -4, 327681, 8, -393214, 65537, 6, -458750, 65537, 6, -524286, 65537, 6, -589822, 65537, 6, -524291, 65537, 6, -458755, 65537, 6, -393219, 65537, 6, -327683, 65537, 6, -589828, 1, 6, -655357, 1, 6, -655354, 1, 6, -589831, 1, 6, -655363, 1, 7, -720894, 65537, 7, -589832, 262145, 7, -655353, 393217, 7, -196612, 65537, 6, -327673, 393217, 7, -262152, 262145, 7, -262158, 65537, 6, -262156, 65537, 6, -262157, 65537, 6, -327693, 327681, 6, -327692, 327681, 6, 65524, 327681, 8, 65523, 327681, 8, -13, 65537, 6, -12, 65537, 6, -196622, 327681, 8, -196621, 327681, 8, -196620, 327681, 8, -65548, 327681, 6, -65549, 327681, 6, -65550, 327681, 6, -14, 65537, 6, -720908, 1, 6, -851981, 131073, 8, -851980, 1, 6, -851983, 196609, 7, -983053, 327681, 6, -851984, 1, 6, -851979, 393217, 7, -851985, 262145, 7, -720913, 262145, 7, -720912, 1, 6, -720911, 65537, 8, -720909, 131073, 8, -720907, 393217, 7, -589837, 327681, 8, -983055, 327681, 6)
 
 [node name="Objects" parent="." index="1"]
-metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Toilet" parent="Objects" index="0" instance=ExtResource("4_tpiek")]
-position = Vector2(-5086, -1993)
+position = Vector2(-5071, -2023)
 scale = Vector2(0.6, 0.6)
 
 [node name="Toilet3" parent="Objects" index="1" instance=ExtResource("4_tpiek")]
-position = Vector2(-4680, -1993)
+position = Vector2(-4680, -2023)
 scale = Vector2(0.6, 0.6)
 
 [node name="Toilet6" parent="Objects" index="2" instance=ExtResource("4_tpiek")]
-position = Vector2(-5086, 45)
+position = Vector2(-5086, 68)
 rotation = 3.14159
 scale = Vector2(0.6, 0.6)
 
 [node name="Toilet7" parent="Objects" index="3" instance=ExtResource("4_tpiek")]
-position = Vector2(-4680, 45)
+position = Vector2(-4680, 69)
 rotation = 3.14159
 scale = Vector2(0.6, 0.6)
 
 [node name="Toilet4" parent="Objects" index="4" instance=ExtResource("4_tpiek")]
-position = Vector2(-4293, -1993)
+position = Vector2(-4321, -2021)
 scale = Vector2(0.6, 0.6)
 
 [node name="Toilet5" parent="Objects" index="5" instance=ExtResource("4_tpiek")]
-position = Vector2(-4293, 45)
+position = Vector2(-4293, 69)
 rotation = 3.14159
 scale = Vector2(0.6, 0.6)
 
@@ -156,7 +155,7 @@ position = Vector2(-6166, -3598)
 [node name="Item4" parent="Objects" index="23" instance=ExtResource("9_25vah")]
 position = Vector2(-5052, -1767)
 
-[node name="Lights" parent="." index="2"]
+[node name="Lights" parent="." index="3"]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -385,14 +384,14 @@ rotation = -1.57079
 position = Vector2(911, 186)
 rotation = -4.71238
 
-[node name="Player" parent="Characters" index="0"]
-position = Vector2(-16, 270)
-
 [node name="Entrance" type="Area2D" parent="." index="5"]
 position = Vector2(0, 582)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance" index="0"]
 position = Vector2(0, -62.5)
 shape = SubResource("RectangleShape2D_1macu")
+
+[node name="Player" parent="Characters" index="0"]
+position = Vector2(-16, 166)
 
 [connection signal="body_entered" from="Entrance" to="." method="_on_entrance_body_entered"]

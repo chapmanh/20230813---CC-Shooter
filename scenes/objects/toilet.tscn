@@ -5,12 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://b8a1juwy2a6sm" path="res://graphics/objects/lid.png" id="4_mej8n"]
 
 [node name="Toilet" instance=ExtResource("1_af7sf")]
+scale = Vector2(0.7, 0.7)
 item_name = "Toilet"
+item_count_min = 1
+item_count_max = 1
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PackedVector2Array(-91, -125, 91, -125, 95, -118, 104, -115, 113, -108, 118, -100, 118, -72, 101, 0, 96, 22, 90, 37, 84, 49, 77, 61, 67, 74, 57, 87, 46, 100, 35, 109, 23, 117, 12, 122, 0, 124, -10, 123, -20, 119, -28, 114, -38, 107, -45, 101, -53, 92, -60, 83, -66, 75, -73, 66, -79, 57, -84, 49, -90, 37, -95, 22, -98, 13, -100, 0, -118, -72, -118, -97, -116, -105, -109, -111, -98, -117)
 
-[node name="ContainerSprite" parent="." index="2"]
+[node name="ContainerBase" parent="." index="2"]
 texture = ExtResource("1_k11d8")
 
 [node name="ContainerLid" parent="." index="3"]

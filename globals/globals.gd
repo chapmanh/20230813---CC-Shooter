@@ -24,8 +24,8 @@ var health: int = 40:
 
 var health_max: int = 100
 
-var laser_amount: int = 0
-var grenade_amount: int = 0
+var laser_amount: int = 50
+var grenade_amount: int = 10
 
 func _ready():
 	pass

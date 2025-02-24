@@ -11,6 +11,8 @@ script = ExtResource("1_1vsw7")
 
 [node name="Objects" type="Node2D" parent="."]
 
+[node name="Items" type="Node2D" parent="."]
+
 [node name="Lights" type="Node2D" parent="."]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
