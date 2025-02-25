@@ -5,10 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://b317icmgjqbtg" path="res://graphics/decals/white.png" id="3_fbeq2"]
 [ext_resource type="Texture2D" uid="uid://bh0lgfwy2phvx" path="res://graphics/lights/textures/Torch.png" id="4_5vx6d"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cgfrt"]
+polygon = PackedVector2Array(-59, -34, -49, -43, -40, -52, -38, -51, -29, -56, -28, -63, -25, -70, -10, -83, -11, -88, -12, -95, -5, -105, -4, -113, -2, -117, 1, -119, 2, -125, 1, -130, 4, -132, 8, -129, 5, -135, 10, -140, 16.3125, -140.75, 19.3125, -137.5, 21.1875, -137.438, 23.5625, -140.5, 32, -137, 32, -133, 31, -130, 36, -130, 37, -127, 37, -119, 34, -116, 43, -108, 44, -103, 49, -103, 52, -101, 53, -72, 52, -67, 47.407, -65.5005, 43.6907, -65.9465, 40.5691, -72.3385, 40.2718, -55.6896, 40.7177, -51.5274, 39.3799, -49.8922, 42.5015, -47.2165, 45.3259, -39.784, 46.9611, -30.2703, 53.0558, -21.7972, 57.0693, -11.6889, 59.1504, -2.32391, 60.191, -0.688747, 60.4883, 9.12221, 60.191, 13.2844, 60.3397, 16.8521, 56.6234, 23.5413, 52.3125, 28.7441, 45.3259, 30.082, 39.8258, 34.2442, 33.2852, 36.474, 29.7176, 41.9741, 24.0688, 44.9471, 19.758, 45.839, 17.9742, 43.6092, 14.5552, 43.6092, 13.366, 47.7714, 5.48749, 51.4877, -7.44514, 52.8256, -20.9724, 51.785, -30.486, 46.1363, -36.7294, 44.2038, -43.5673, 38.5551, -47.2836, 30.3793, -47.4322, 23.9873, -45.3511, 21.9062, -47.5809, 18.7845, -51.1485, 18.9332, -54.8648, 14.7709, -57.3919, 8.82491, -57.3919, 5.40594, -55.4594, 3.91943, -59.1757, -3.95906, -60.2162, -12.4322, -59.473, -18.0809, -58.2838, -18.8242, -60.9595, -24.3242, -61.5541, -28.6351, -60.9595, -32.2027)
+
 [sub_resource type="Gradient" id="Gradient_mmmpy"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_njplt"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2awqt"]
 gradient = SubResource("Gradient_mmmpy")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r6jce"]
@@ -24,45 +27,38 @@ orbit_velocity_max = 0.0
 damping_min = 10000.0
 damping_max = 10000.0
 color = Color(0.8, 0.94902, 0.976471, 0.513726)
-color_ramp = SubResource("GradientTexture1D_njplt")
+color_ramp = SubResource("GradientTexture1D_2awqt")
 attractor_interaction_enabled = false
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cgfrt"]
-polygon = PackedVector2Array(-59, -34, -49, -43, -40, -52, -38, -51, -29, -56, -28, -63, -25, -70, -10, -83, -11, -88, -12, -95, -5, -105, -4, -113, -2, -117, 1, -119, 2, -125, 1, -130, 4, -132, 8, -129, 5, -135, 10, -140, 16.3125, -140.75, 19.3125, -137.5, 21.1875, -137.438, 23.5625, -140.5, 32, -137, 32, -133, 31, -130, 36, -130, 37, -127, 37, -119, 34, -116, 43, -108, 44, -103, 49, -103, 52, -101, 53, -72, 52, -67, 47.407, -65.5005, 43.6907, -65.9465, 40.5691, -72.3385, 40.2718, -55.6896, 40.7177, -51.5274, 39.3799, -49.8922, 42.5015, -47.2165, 45.3259, -39.784, 46.9611, -30.2703, 53.0558, -21.7972, 57.0693, -11.6889, 59.1504, -2.32391, 60.191, -0.688747, 60.4883, 9.12221, 60.191, 13.2844, 60.3397, 16.8521, 56.6234, 23.5413, 52.3125, 28.7441, 45.3259, 30.082, 39.8258, 34.2442, 33.2852, 36.474, 29.7176, 41.9741, 24.0688, 44.9471, 19.758, 45.839, 17.9742, 43.6092, 14.5552, 43.6092, 13.366, 47.7714, 5.48749, 51.4877, -7.44514, 52.8256, -20.9724, 51.785, -30.486, 46.1363, -36.7294, 44.2038, -43.5673, 38.5551, -47.2836, 30.3793, -47.4322, 23.9873, -45.3511, 21.9062, -47.5809, 18.7845, -51.1485, 18.9332, -54.8648, 14.7709, -57.3919, 8.82491, -57.3919, 5.40594, -55.4594, 3.91943, -59.1757, -3.95906, -60.2162, -12.4322, -59.473, -18.0809, -58.2838, -18.8242, -60.9595, -24.3242, -61.5541, -28.6351, -60.9595, -32.2027)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 23
 script = ExtResource("1_0n52c")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
-position = Vector2(0, -44)
+rotation = 1.5708
 texture = ExtResource("1_61y5v")
+offset = Vector2(0, -44)
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="PlayerImage"]
+occluder = SubResource("OccluderPolygon2D_cgfrt")
 
-[node name="PrimaryTimer" type="Timer" parent="."]
-wait_time = 0.7
-one_shot = true
-
-[node name="SecondaryTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="Flashlight" type="PointLight2D" parent="."]
-position = Vector2(20, -137.976)
+[node name="Flashlight" type="PointLight2D" parent="PlayerImage"]
+position = Vector2(20.0217, -138.994)
 rotation = 0.785398
+scale = Vector2(2.42266, 2.42266)
 enabled = false
+energy = 3.0
 shadow_enabled = true
 texture = ExtResource("4_5vx6d")
 offset = Vector2(-200, -200)
 
-[node name="LaserStartPositions" type="Node2D" parent="."]
-position = Vector2(20, -142.472)
+[node name="LaserStartPositions" type="Node2D" parent="PlayerImage"]
+position = Vector2(20.0217, -138.994)
 
-[node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
+[node name="Marker2D" type="Marker2D" parent="PlayerImage/LaserStartPositions"]
 position = Vector2(0, 3.47189)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="LaserStartPositions/Marker2D"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="PlayerImage/LaserStartPositions/Marker2D"]
 emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_r6jce")
@@ -76,14 +72,22 @@ trail_lifetime = 0.1
 trail_sections = 100
 trail_section_subdivisions = 50
 
-[node name="Marker2D2" type="Marker2D" parent="LaserStartPositions"]
+[node name="Marker2D2" type="Marker2D" parent="PlayerImage/LaserStartPositions"]
 position = Vector2(-8, 7.47189)
 
-[node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
+[node name="Marker2D3" type="Marker2D" parent="PlayerImage/LaserStartPositions"]
 position = Vector2(8, 7.47189)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_cgfrt")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+
+[node name="PrimaryTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="SecondaryTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="timeout" from="PrimaryTimer" to="." method="_on_primary_timer_timeout"]
 [connection signal="timeout" from="SecondaryTimer" to="." method="_on_secondary_timer_timeout"]

@@ -11,6 +11,8 @@ script = ExtResource("1_1vsw7")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
+[node name="Decals" type="Node2D" parent="."]
+
 [node name="Objects" type="Node2D" parent="."]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
@@ -31,6 +33,8 @@ metadata/_edit_lock_ = true
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Characters" type="Node" parent="."]
+
+[node name="Enemies" type="Node2D" parent="Characters"]
 
 [node name="Player" parent="Characters" instance=ExtResource("4_0cll6")]
 unique_name_in_owner = true

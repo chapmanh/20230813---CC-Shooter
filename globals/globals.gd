@@ -3,6 +3,10 @@ extends Node
 signal health_change
 signal ammo_change(ammo_type: int)
 
+var laser_scene: PackedScene = preload("res://scenes/Projectiles/laser.tscn")
+var grenade_scene: PackedScene = preload("res://scenes/Projectiles/grenade.tscn")
+var item_scene: PackedScene = preload("res://scenes/Items/item.tscn")
+
 var primary_amount: int = -1:
 	get:
 		return primary_amount
@@ -26,6 +30,8 @@ var health_max: int = 100
 
 var laser_amount: int = 50
 var grenade_amount: int = 10
+
+var player_pos: Vector2
 
 func _ready():
 	pass

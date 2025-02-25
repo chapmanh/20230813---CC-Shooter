@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://35scyslevvd"]
+
+[ext_resource type="Texture2D" uid="uid://be1ylrs87qojf" path="res://graphics/enemies/scout.png" id="1_hsyyk"]
+[ext_resource type="Script" path="res://scenes/enemies/scout.gd" id="1_pbm3e"]
+[ext_resource type="Texture2D" uid="uid://b317icmgjqbtg" path="res://graphics/decals/white.png" id="3_jru84"]
+
+[sub_resource type="Gradient" id="Gradient_pb8ln"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_njplt"]
+gradient = SubResource("Gradient_pb8ln")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixol8"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2000.0
+initial_velocity_max = 3000.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 10000.0
+damping_max = 10000.0
+color = Color(0.8, 0.94902, 0.976471, 0.513726)
+color_ramp = SubResource("GradientTexture1D_njplt")
+attractor_interaction_enabled = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e063u"]
+radius = 67.0075
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7w4u1"]
+radius = 701.058
+
+[node name="Scout" type="CharacterBody2D" groups=["Scout"]]
+collision_layer = 2
+collision_mask = 47
+script = ExtResource("1_pbm3e")
+
+[node name="ScoutImage" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_hsyyk")
+centered = false
+offset = Vector2(-89, -149)
+
+[node name="BarrelPositions" type="Node2D" parent="ScoutImage"]
+position = Vector2(-9, -116)
+
+[node name="Marker2D" type="Marker2D" parent="ScoutImage/BarrelPositions"]
+position = Vector2(-18, 2.99998)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ScoutImage/BarrelPositions/Marker2D"]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_ixol8")
+texture = ExtResource("3_jru84")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.95
+interpolate = false
+fract_delta = false
+trail_lifetime = 0.1
+trail_sections = 100
+trail_section_subdivisions = 50
+
+[node name="Marker2D2" type="Marker2D" parent="ScoutImage/BarrelPositions"]
+position = Vector2(20, -7.00002)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ScoutImage/BarrelPositions/Marker2D2"]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_ixol8")
+texture = ExtResource("3_jru84")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.95
+interpolate = false
+fract_delta = false
+trail_lifetime = 0.1
+trail_sections = 100
+trail_section_subdivisions = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e063u")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_7w4u1")
+debug_color = Color(0.67451, 0.505882, 0.0156863, 0.121569)
+
+[node name="PrimaryTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="PrimaryTimer" to="." method="_on_primary_timer_timeout"]

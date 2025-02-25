@@ -12,20 +12,19 @@ var speed: float = max_speed
 var sprint_mult: float = 1.5
 
 func _ready():
-	$CollisionShape2D.polygon = $LightOccluder2D.occluder.polygon
+	$CollisionShape2D.polygon = $PlayerImage/LightOccluder2D.occluder.polygon
 	
 func _process(_delta):
-	
 	# input
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
 	move_and_slide()
+	Globals.player_pos = global_position
 	
-	var player_facing = (get_global_mouse_position() - position).normalized()
+	var player_facing: Vector2 = (get_global_mouse_position() - position).normalized()
 	
 	# rotate - look at mouse
 	look_at(get_global_mouse_position())
-	rotate(PI/2)
 	
 	# primary action
 	if (Input.is_action_just_pressed("primary action") 
@@ -36,11 +35,11 @@ func _process(_delta):
 			Globals.laser_amount = Globals.primary_amount #Backup value to specific weapon
 			can_primary = false
 			$PrimaryTimer.start()
-			var pos = $LaserStartPositions.get_children().pick_random().global_position
+			var pos = $PlayerImage/LaserStartPositions.get_children().pick_random().global_position
 			var dir = player_facing
 			primary.emit(pos, dir)
-			$LaserStartPositions/Marker2D/GPUParticles2D.restart()
-			$LaserStartPositions/Marker2D/GPUParticles2D.emitting = true
+			$PlayerImage/LaserStartPositions/Marker2D/GPUParticles2D.restart()
+			$PlayerImage/LaserStartPositions/Marker2D/GPUParticles2D.emitting = true
 		else:
 			out_of_ammo.emit(1)
 	
@@ -49,9 +48,11 @@ func _process(_delta):
 			and can_secondary
 	):
 		if Globals.secondary_amount > 0:
+			Globals.secondary_amount -= 1
+			Globals.grenade_amount = Globals.secondary_amount
 			can_secondary = false
 			$SecondaryTimer.start()
-			var pos = $LaserStartPositions.get_children()[0].global_position
+			var pos = $PlayerImage/LaserStartPositions.get_children()[0].global_position
 			var dir = player_facing
 			secondary.emit(pos, dir)
 		else:
@@ -63,7 +64,7 @@ func _process(_delta):
 		speed = max_speed
 		
 	if Input.is_action_just_pressed("utility"):
-		$Flashlight.enabled = not $Flashlight.enabled
+		$PlayerImage/LaserStartPositions/Flashlight.enabled = not $PlayerImage/LaserStartPositions/Flashlight.enabled
 
 func _on_primary_timer_timeout():
 	can_primary = true

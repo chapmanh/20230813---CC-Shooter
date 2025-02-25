@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b0umexyrvmbim"]
+[gd_scene load_steps=31 format=3 uid="uid://b0umexyrvmbim"]
 
 [ext_resource type="PackedScene" uid="uid://sbqhkqvnc37r" path="res://scenes/levels/level_template.tscn" id="1_yp552"]
 [ext_resource type="PackedScene" uid="uid://32416h8esj0x" path="res://scenes/objects/gate.tscn" id="2_7falm"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d1irnxeaw6ro3" path="res://scenes/objects/steam_vent.tscn" id="12_bshe7"]
 [ext_resource type="PackedScene" uid="uid://ype7mfjjvslt" path="res://scenes/objects/box.tscn" id="15_yvj4c"]
 [ext_resource type="PackedScene" uid="uid://w4w2yd8qbnyf" path="res://scenes/objects/toilet.tscn" id="16_a8xji"]
+[ext_resource type="PackedScene" uid="uid://35scyslevvd" path="res://scenes/enemies/scout.tscn" id="17_c2bxy"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xxfhi"]
 polygon = PackedVector2Array(-65, -65, 195, -65, 195, 65, -65, 65)
@@ -240,7 +241,10 @@ position = Vector2(-759, 592)
 rotation = 4.71238
 collision_mask = 11
 
-[node name="Player" parent="Characters" index="0"]
+[node name="Scout" parent="Characters/Enemies" index="0" instance=ExtResource("17_c2bxy")]
+position = Vector2(189, 1265)
+
+[node name="Player" parent="Characters" index="1"]
 position = Vector2(584, 605)
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
