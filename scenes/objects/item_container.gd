@@ -15,6 +15,7 @@ func _ready():
 
 func hit():
 	#print("Hit: {o}".format({'o':item_name}))
+	
 	if $ContainerLid.visible:
 		$ContainerLid.visible = false
 	

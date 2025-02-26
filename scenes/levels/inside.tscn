@@ -565,7 +565,7 @@ position = Vector2(0, 582)
 position = Vector2(0, -62.5)
 shape = SubResource("RectangleShape2D_1macu")
 
-[node name="Player" parent="Characters" index="0"]
+[node name="Player" parent="Characters" index="1"]
 position = Vector2(-16, 166)
 
 [connection signal="body_entered" from="Entrance" to="." method="_on_entrance_body_entered"]

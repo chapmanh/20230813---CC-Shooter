@@ -241,8 +241,8 @@ position = Vector2(-759, 592)
 rotation = 4.71238
 collision_mask = 11
 
-[node name="Scout" parent="Characters/Enemies" index="0" instance=ExtResource("17_c2bxy")]
-position = Vector2(189, 1265)
+[node name="Scout2" parent="Characters/Enemies" index="0" instance=ExtResource("17_c2bxy")]
+position = Vector2(652, 1279)
 
 [node name="Player" parent="Characters" index="1"]
 position = Vector2(584, 605)

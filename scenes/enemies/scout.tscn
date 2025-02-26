@@ -30,7 +30,7 @@ attractor_interaction_enabled = false
 radius = 67.0075
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7w4u1"]
-radius = 701.058
+radius = 868.001
 
 [node name="Scout" type="CharacterBody2D" groups=["Scout"]]
 collision_layer = 2

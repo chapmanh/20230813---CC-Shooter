@@ -33,7 +33,7 @@ func _on_scout_primary(pos, dir):
 
 func fire_primary_weapon(pos: Vector2, dir: Vector2, projectile: PackedScene, mask: int):
 	var proj = projectile.instantiate() as Area2D
-	proj.set_collision_mask_value(mask, false) #No friendly fire
+	proj.set_collision_mask_value(mask, false)
 	proj.position = pos
 	proj.rotation = dir.angle() + PI/2
 	proj.direction = dir

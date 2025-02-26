@@ -10,9 +10,11 @@ func _process(delta):
 	position += direction * speed * delta
 
 func _on_body_entered(body):
+	print(String.num_int64(collision_mask, 2))
 	if body.has_method("hit"):
 		#if "hit" in body:
-		body.hit()
+		if collision_mask&1<<0 == 0: # Player mask layer (layer 1) is false
+			body.hit()
 	queue_free()
  
 func _on_self_destruct_timer_timeout():
