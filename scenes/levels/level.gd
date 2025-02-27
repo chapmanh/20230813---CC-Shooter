@@ -19,7 +19,7 @@ func _ready():
 		scout.connect("fire_primary", _on_scout_primary)
 
 func _on_player_primary(pos, dir):
-	fire_primary_weapon(pos, dir, Globals.laser_scene, 1)
+	fire_primary_weapon(pos, dir, Globals.laser_scene, 1, true)
 	#$UI.update_ammo_label_text(1)
 
 func _on_player_secondary(pos, dir):
@@ -29,11 +29,14 @@ func _on_player_secondary(pos, dir):
 	$Projectiles.add_child(grenade)
 
 func _on_scout_primary(pos, dir):
-	fire_primary_weapon(pos, dir, Globals.laser_scene, 2)
+	fire_primary_weapon(pos, dir, Globals.laser_scene, 2, false)
 
-func fire_primary_weapon(pos: Vector2, dir: Vector2, projectile: PackedScene, mask: int):
+func fire_primary_weapon(
+	pos: Vector2, dir: Vector2, projectile: PackedScene, mask: int, friendly: bool
+):
 	var proj = projectile.instantiate() as Area2D
 	proj.set_collision_mask_value(mask, false)
+	proj.friendly = friendly
 	proj.position = pos
 	proj.rotation = dir.angle() + PI/2
 	proj.direction = dir

@@ -30,7 +30,7 @@ color = Color(0.8, 0.94902, 0.976471, 0.513726)
 color_ramp = SubResource("GradientTexture1D_2awqt")
 attractor_interaction_enabled = false
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Entity"]]
 collision_mask = 23
 script = ExtResource("1_0n52c")
 

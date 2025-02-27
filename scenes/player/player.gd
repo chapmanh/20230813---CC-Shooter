@@ -66,6 +66,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("utility"):
 		$PlayerImage/LaserStartPositions/Flashlight.enabled = not $PlayerImage/LaserStartPositions/Flashlight.enabled
 
+func hit():
+	print('Player hit!')
+
 func _on_primary_timer_timeout():
 	can_primary = true
 	

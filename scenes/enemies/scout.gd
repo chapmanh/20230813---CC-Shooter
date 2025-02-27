@@ -19,6 +19,9 @@ func _process(_delta):
 			can_primary = false
 			$PrimaryTimer.start()
 
+func hit():
+	print('Scout hit!')
+
 func _on_attack_area_body_entered(_body):
 	player_nearby = true
 	
