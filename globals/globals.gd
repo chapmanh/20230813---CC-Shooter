@@ -19,11 +19,11 @@ var secondary_amount: int = -1:
 	set(value):
 		secondary_amount = value
 		ammo_change.emit(2)
-var health: int = 40:
+var health: int = 100:
 	get:
 		return health
 	set(value):
-		health = value
+		health = min(value, health_max)
 		health_change.emit()
 
 var health_max: int = 100

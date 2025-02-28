@@ -48,13 +48,18 @@ func item_spawn(dir):
 	)
 
 func _on_body_entered(_body):
+	var collected: bool = false
 	if item_type == "p":
+		collected = true
 		Globals.primary_amount += 10
 		Globals.laser_amount = Globals.primary_amount
 	if item_type == "s":
+		collected = true
 		Globals.secondary_amount += 3
 		Globals.grenade_amount = Globals.secondary_amount
-	if item_type == "h":
+	if item_type == "h" and Globals.health < Globals.health_max:
+		collected = true
 		Globals.health += 10
-	queue_free()
+	if collected:
+		queue_free()
 	

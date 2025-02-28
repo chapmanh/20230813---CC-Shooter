@@ -13,7 +13,7 @@ func _ready():
 	current_direction = Vector2.DOWN.rotated(rotation)
 	item_count_max = min(item_count_max, item_cap)
 
-func hit():
+func hit(_d):
 	#print("Hit: {o}".format({'o':item_name}))
 	
 	if $ContainerLid.visible:

@@ -3,6 +3,8 @@ extends CharacterBody2D
 var player_nearby: bool = false
 var can_primary: bool = true
 
+var enemy_health: int = 30
+
 @onready var barrel_positions = $ScoutImage/BarrelPositions
 @onready var barrel_cycle: int = randi() % barrel_positions.get_child_count()
 
@@ -19,8 +21,11 @@ func _process(_delta):
 			can_primary = false
 			$PrimaryTimer.start()
 
-func hit():
-	print('Scout hit!')
+func hit(d):
+	enemy_health -= d
+	$AnimationPlayer.play("damaged")
+	if enemy_health <= 0:
+		queue_free()
 
 func _on_attack_area_body_entered(_body):
 	player_nearby = true

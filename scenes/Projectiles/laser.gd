@@ -3,6 +3,7 @@ extends Area2D
 @export var speed: int = 1000
 var direction: Vector2 = Vector2.UP
 var friendly: bool = false
+var d: int = 10
 
 func _ready():
 	$SelfDestructTimer.start()
@@ -16,9 +17,9 @@ func _on_body_entered(body):
 		#if "hit" in body:
 #		if collision_mask&1<<0 == 0: # Player mask layer (layer 1) is false
 		if body in get_tree().get_nodes_in_group("Container") and friendly: # Player mask layer (layer 1) is false
-			body.hit()
+			body.hit(d)
 		elif body not in get_tree().get_nodes_in_group("Container"):
-			body.hit()
+			body.hit(d)
 	queue_free()
  
 func _on_self_destruct_timer_timeout():

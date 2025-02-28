@@ -1,8 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://35scyslevvd"]
+[gd_scene load_steps=14 format=3 uid="uid://35scyslevvd"]
 
 [ext_resource type="Texture2D" uid="uid://be1ylrs87qojf" path="res://graphics/enemies/scout.png" id="1_hsyyk"]
 [ext_resource type="Script" path="res://scenes/enemies/scout.gd" id="1_pbm3e"]
+[ext_resource type="Shader" path="res://scenes/enemies/scout.gdshader" id="2_7n1df"]
 [ext_resource type="Texture2D" uid="uid://b317icmgjqbtg" path="res://graphics/decals/white.png" id="3_jru84"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hlx1"]
+resource_local_to_scene = true
+shader = ExtResource("2_7n1df")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="Gradient" id="Gradient_pb8ln"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -32,12 +39,50 @@ radius = 67.0075
 [sub_resource type="CircleShape2D" id="CircleShape2D_7w4u1"]
 radius = 868.001
 
+[sub_resource type="Animation" id="Animation_o1u6n"]
+resource_name = "damaged"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoutImage:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_14e0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoutImage:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqdms"]
+_data = {
+"RESET": SubResource("Animation_14e0o"),
+"damaged": SubResource("Animation_o1u6n")
+}
+
 [node name="Scout" type="CharacterBody2D" groups=["Entity", "Scout"]]
 collision_layer = 2
 collision_mask = 47
 script = ExtResource("1_pbm3e")
 
 [node name="ScoutImage" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5hlx1")
 rotation = 1.5708
 texture = ExtResource("1_hsyyk")
 centered = false
@@ -92,6 +137,11 @@ shape = SubResource("CircleShape2D_7w4u1")
 debug_color = Color(0.67451, 0.505882, 0.0156863, 0.121569)
 
 [node name="PrimaryTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cqdms")
+}
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

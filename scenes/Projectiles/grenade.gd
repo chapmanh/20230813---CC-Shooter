@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 const speed = 750
+var d:int = 50
 
 @onready var explosion_radius = 300
 
@@ -17,7 +18,7 @@ func explode():
 func damage():
 	for body in $Node/ExplosionArea2D.get_overlapping_bodies():
 		if "hit" in body:
-			body.hit()
+			body.hit(d)
 	
 func free():
 	self.call_deferred("queue_free")

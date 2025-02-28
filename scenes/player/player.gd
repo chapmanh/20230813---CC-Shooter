@@ -15,6 +15,8 @@ func _ready():
 	$CollisionShape2D.polygon = $PlayerImage/LightOccluder2D.occluder.polygon
 	
 func _process(_delta):
+	if Globals.health <= 0:
+		queue_free()
 	# input
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
@@ -64,10 +66,10 @@ func _process(_delta):
 		speed = max_speed
 		
 	if Input.is_action_just_pressed("utility"):
-		$PlayerImage/LaserStartPositions/Flashlight.enabled = not $PlayerImage/LaserStartPositions/Flashlight.enabled
+		$PlayerImage/Flashlight.enabled = not $PlayerImage/Flashlight.enabled
 
-func hit():
-	print('Player hit!')
+func hit(d):
+	Globals.health -= d
 
 func _on_primary_timer_timeout():
 	can_primary = true
