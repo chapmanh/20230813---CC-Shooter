@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b42ik480jpdvc"]
+[gd_scene load_steps=35 format=3 uid="uid://b42ik480jpdvc"]
 
 [ext_resource type="PackedScene" uid="uid://sbqhkqvnc37r" path="res://scenes/levels/level_template.tscn" id="1_vbh7a"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_j6hja"]
@@ -29,6 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://kse3oj7gi0wc" path="res://graphics/decals/brushes/brush055.png" id="15_la0nr"]
 [ext_resource type="Texture2D" uid="uid://ceou5bn43wdeo" path="res://graphics/decals/brushes/brush049.png" id="16_x1jnt"]
 [ext_resource type="Texture2D" uid="uid://5g1gsqni2te1" path="res://graphics/decals/brushes/brush047.png" id="17_3mlah"]
+[ext_resource type="PackedScene" uid="uid://ck5jw03ejart" path="res://scenes/enemies/bug_small.tscn" id="30_6eyl4"]
+[ext_resource type="PackedScene" uid="uid://0ogm5jhpiswo" path="res://scenes/enemies/bug_medium.tscn" id="31_shkre"]
+[ext_resource type="PackedScene" uid="uid://yotpghp7csi3" path="res://scenes/enemies/bug_large.tscn" id="32_x1y1x"]
+[ext_resource type="PackedScene" uid="uid://do1g8ms5wdrys" path="res://scenes/enemies/bug_giant.tscn" id="33_x83r6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1macu"]
 size = Vector2(782, 251)
@@ -565,7 +569,63 @@ position = Vector2(0, 582)
 position = Vector2(0, -62.5)
 shape = SubResource("RectangleShape2D_1macu")
 
+[node name="BugSmall" parent="Characters/Enemies" index="0" instance=ExtResource("30_6eyl4")]
+position = Vector2(-837, -1075)
+
+[node name="BugSmall2" parent="Characters/Enemies" index="1" instance=ExtResource("30_6eyl4")]
+position = Vector2(-1023, -5121)
+
+[node name="BugSmall3" parent="Characters/Enemies" index="2" instance=ExtResource("30_6eyl4")]
+position = Vector2(-1126, -4875)
+
+[node name="BugSmall4" parent="Characters/Enemies" index="3" instance=ExtResource("30_6eyl4")]
+position = Vector2(-903, -4523)
+
+[node name="BugSmall5" parent="Characters/Enemies" index="4" instance=ExtResource("30_6eyl4")]
+position = Vector2(-829, -10286)
+rotation = 0.756444
+
+[node name="BugSmall6" parent="Characters/Enemies" index="5" instance=ExtResource("30_6eyl4")]
+position = Vector2(-1103, -10265)
+rotation = 0.660675
+
+[node name="BugSmall7" parent="Characters/Enemies" index="6" instance=ExtResource("30_6eyl4")]
+position = Vector2(-880, -9913)
+rotation = -0.277458
+
+[node name="BugMedium" parent="Characters/Enemies" index="7" instance=ExtResource("31_shkre")]
+position = Vector2(2242, -1352)
+rotation = 2.96413
+
+[node name="BugMedium2" parent="Characters/Enemies" index="8" instance=ExtResource("31_shkre")]
+position = Vector2(1033, -5192)
+rotation = 2.96413
+
+[node name="BugMedium3" parent="Characters/Enemies" index="9" instance=ExtResource("31_shkre")]
+position = Vector2(795, -4506)
+rotation = 3.55015
+
+[node name="BugMedium4" parent="Characters/Enemies" index="10" instance=ExtResource("31_shkre")]
+position = Vector2(1164, -10854)
+rotation = 3.55015
+
+[node name="BugMedium5" parent="Characters/Enemies" index="11" instance=ExtResource("31_shkre")]
+position = Vector2(-1070, -11104)
+rotation = 1.30276
+
+[node name="BugLarge" parent="Characters/Enemies" index="12" instance=ExtResource("32_x1y1x")]
+position = Vector2(-66.9999, -4015)
+rotation = -1.58231
+
+[node name="BugLarge2" parent="Characters/Enemies" index="13" instance=ExtResource("32_x1y1x")]
+position = Vector2(967, -10188)
+rotation = -3.87212
+
+[node name="BugGiant" parent="Characters/Enemies" index="14" instance=ExtResource("33_x83r6")]
+position = Vector2(-32, -11025)
+rotation = 1.49504
+
 [node name="Player" parent="Characters" index="1"]
-position = Vector2(-16, 166)
+position = Vector2(0, -7810)
 
 [connection signal="body_entered" from="Entrance" to="." method="_on_entrance_body_entered"]

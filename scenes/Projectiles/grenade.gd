@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 const speed = 750
-var d:int = 50
+var d:int = 35
 
 @onready var explosion_radius = 300
 

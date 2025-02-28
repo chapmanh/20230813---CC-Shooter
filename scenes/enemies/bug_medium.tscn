@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://0ogm5jhpiswo"]
+
+[ext_resource type="PackedScene" uid="uid://b1nrh341ti77e" path="res://scenes/enemies/bug.tscn" id="1_oprvq"]
+
+[node name="BugMedium" instance=ExtResource("1_oprvq")]
+health = 40
+
+[node name="Body" parent="." index="1"]
+scale = Vector2(0.1, 0.1)

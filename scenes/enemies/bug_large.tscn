@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://yotpghp7csi3"]
+
+[ext_resource type="PackedScene" uid="uid://b1nrh341ti77e" path="res://scenes/enemies/bug.tscn" id="1_h57u6"]
+
+[node name="BugLarge" instance=ExtResource("1_h57u6")]
+
+[node name="Body" parent="." index="1"]
+scale = Vector2(0.3, 0.3)

@@ -7,12 +7,13 @@ signal out_of_ammo(ammo_type: int)
 var can_primary: bool = true
 var can_secondary: bool = true
 
-@export var max_speed: float = 500
+@export var max_speed: float = 500.9
 var speed: float = max_speed
 var sprint_mult: float = 1.5
 
 func _ready():
-	$CollisionShape2D.polygon = $PlayerImage/LightOccluder2D.occluder.polygon
+	pass
+	#$CollisionShape2D.polygon = $PlayerImage/LightOccluder2D.occluder.polygon
 	
 func _process(_delta):
 	if Globals.health <= 0:
@@ -54,7 +55,8 @@ func _process(_delta):
 			Globals.grenade_amount = Globals.secondary_amount
 			can_secondary = false
 			$SecondaryTimer.start()
-			var pos = $PlayerImage/LaserStartPositions.get_children()[0].global_position
+#			var pos = $PlayerImage/LaserStartPositions.get_children()[0].global_position
+			var pos = global_position
 			var dir = player_facing
 			secondary.emit(pos, dir)
 		else:
